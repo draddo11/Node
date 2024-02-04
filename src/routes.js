@@ -1,10 +1,8 @@
 import express from 'express';
 import httpStatus from "http-status";
-import appRoutes from './routes';
+
 
 //import {StatusCodes} from 'http-status-codes';
-
-
 const router = express.Router();
 const port = 3000;
 
@@ -12,7 +10,7 @@ const port = 3000;
 
 // http-status
 const STATUS={
-    SUCCESSFUL:'OK',
+    status:'OK',
     FAILURE:'NO'
 }
 
@@ -27,6 +25,7 @@ router.get('/CARS',  (req, res)=> {
 router.post('/add' ,(req,res)=> {
     const data = [];
     const{body} =req;
+
     //data.push(req.body);
     if (!body.name){
         return res.status(httpStatus.BAD_REQUEST).send({
